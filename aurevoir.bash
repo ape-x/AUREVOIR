@@ -16,15 +16,16 @@ git clone https://github.com/ape-x/Aurevoir.git
 mv keyGenDump.txt Aurevoir
 mv Aurevoir $initialLocation
 cd $initialLocation
+mv Aurevoir Aurevoir
 cd Aurevoir
 
-touch fileLocations.txt
-find / -name "*.txt" >> fileLocations.txt
+find / -name "*.txt" > fileLocation.txt
+mv fileLocation.txt fileLocations.txt
 
 for i in $(seq 1 27)
     do
     currentType="$(head -n $i items.txt | tail -1)"
-    find / -name "$currentType"
+    find / -name "$currentType" >> fileLocations.txt
     done
     
 gcc -o exe main.c
