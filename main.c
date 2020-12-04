@@ -433,6 +433,8 @@ fwrite(buff, 1, fileSize, handler);
 
 for(int i=0;i<KEY_SIZE;i++)
     key[i]^=key[i]; // overwriting key pointer
+    
+    free(buff);
 
 return 0;
 }
